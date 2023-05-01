@@ -1,8 +1,3 @@
-/* 
-This code is too long and too bad, but it works.
-hope I will clean it later
-Please don't read
-*/
 class Solution {
     public boolean isValidSudoku(char[][] board) {
         for(int i=0;i<board.length;i++)
