@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> numbers = new HashMap<>();
@@ -6,6 +8,7 @@ class Solution {
             if(numbers.containsKey(target-nums[i]) && numbers.get(target-nums[i]) != i)
                 return new int[] {i,numbers.get(target-nums[i])};
             numbers.put(nums[i],i);
+            Arrays.sort(nums);
         } 
         return new int[] {};
     }
