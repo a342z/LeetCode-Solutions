@@ -3,17 +3,20 @@ import java.util.Map;
 
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        Map<String,Character> pMap = new HashMap<>();
+        Map<Character, String> map = new HashMap<>();
         String words[] = s.split(" ");
 
+        if (pattern.length() != words.length) return false;
+
         for (int i = 0; i < pattern.length(); i++) {
-            if(pMap.containsKey(pattern.charAt(i))){
-                if(!pMap.get(pattern.charAt(i)).equals(words[i])) return false;
-            }
-            else{
-                pMap.put(pattern.charAt(i), words[i]);
+            if (map.containsKey(pattern.charAt(i))) {
+                if (!map.get(pattern.charAt(i)).equals(words[i])) return false;
+            } else {
+                if (map.containsValue(words[i])) return false;
+                map.put(pattern.charAt(i), words[i]);
             }
         }
+
         return true;
     }
 }
